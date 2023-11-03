@@ -34,8 +34,18 @@ if [[ "$ACCESS_TYPE" == "on" ]]; then
     echo '==========================='
     echo 'Test httpbin availability:'
     show_and_run_cmd_line "ncat -zv localhost ${HTTPBIN_PORT}"
+    ncat_ret=$?
     echo '==========================='
     show_and_run_cmd_line "curl -v 'http://localhost:${HTTPBIN_PORT}/ip'"
+    curl_ret=$?
+    if [[ "0" -eq "$ncat_ret" && "0" -eq "$curl_ret" ]]; then
+        echo
+        echo '*****************************'
+        echo -e "HTTPBin with Nginx Port:\t\t[ $HTTPBIN_PORT ]"
+        echo -e "HTTPBin Original Port:\t\t\t[ $HTTPBIN_ORIGINAL_PORT ]"
+        echo -e "HTTPBin Nginx Compose Project Name:\t[ $PROJECT_NAME ]"
+        echo -e "HTTPBin Nginx Compose Root:\t\t[ $HTTPBIN_ROOT_PATH ]"
+    fi
 else
     docker-compose --file "${DOCKER_COMPOSE_FILE}" --project-name "${PROJECT_NAME}" down
 fi
