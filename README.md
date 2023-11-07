@@ -6,16 +6,24 @@
 
 
 
+## 必备环境
+
+- Docker
+- Docker Compose
+- Bash 及兼容 Shell
+
+
+
 ## 使用指南
 
 OS X & Linux:
 
 ```bash
 # 启动
-access-httpbin.sh on
+access-httpbin.sh [on]
 
 # 停止
-access-httpbin.sh on
+access-httpbin.sh off
 ```
 
 Windows: 暂无可用脚本。
