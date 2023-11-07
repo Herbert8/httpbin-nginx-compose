@@ -18,13 +18,43 @@
 
 OS X & Linux:
 
+常用命令：
+
 ```bash
 # 启动
 access-httpbin.sh [on]
 
 # 停止
 access-httpbin.sh off
+
+# 显示帮助
+access-httpbin.sh -h
 ```
+
+
+
+详细说明：
+
+```
+access-httpbin.sh -h
+
+Usage:
+  access-httpbin.sh [options] [access_type]
+
+Options:
+  -h                                 Show this help.
+
+  -o <outer_nginx_port>              Specify the outer nginx port (default: 12345).
+  -i <inner_nginx_port>              Specify the inner nginx port (default: 12346).
+  -b <original_httpbin_port>         Specify the original httpbin service port (default: 12347).
+  -p <root_path>                     Specify the tool files directory (default: this script path).
+
+Access Type:
+  on                                 Startup services (default).
+  off                                Shutdown services.
+```
+
+
 
 Windows: 暂无可用脚本。
 
